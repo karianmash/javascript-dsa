@@ -4,8 +4,7 @@ function takeShower() {
 
 function eatBreakfast() {
   let meal = cookFood();
-  console.log(meal);
-  return `Eating ${meal}`;
+  console.log(`Eating ${meal}`);
 }
 
 function cookFood() {
