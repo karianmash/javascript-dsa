@@ -12,10 +12,11 @@ function cookFood() {
   let items = ["Oatmeal", "Eggs", "Protein Shake"];
   return items[Math.floor(Math.random() * items.length)];
 }
+
 function wakeUp() {
   takeShower();
   eatBreakfast();
-  console.log("Ok ready to go to work!");
+  console.log("Ok, ready to go to work!");
 }
 
 wakeUp();
