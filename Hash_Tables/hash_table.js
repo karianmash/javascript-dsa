@@ -19,7 +19,7 @@ class HashTable {
     }
     this.values[hash][key] = value;
   }
-111
+11
   search(key) {
     const hash = this.calculateHash(key);
     if (
