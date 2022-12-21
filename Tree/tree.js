@@ -4,7 +4,7 @@ class TreeNode {
     this.descendants = [];
   }
 }
-111
+11
 // create nodes with values
 const abe = new TreeNode("Abe");
 const homer = new TreeNode("Homer");
