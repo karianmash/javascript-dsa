@@ -17,7 +17,7 @@ function binarySearch(arr, elem) {
   }
   return -1;
 }
-11
+1
 // Refactored Version
 function binarySearch(arr, elem) {
   var start = 0;
