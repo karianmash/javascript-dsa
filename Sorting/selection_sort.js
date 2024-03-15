@@ -1,38 +1,29 @@
-// LEGACY VERSION (non ES2015 syntax)
+/**
+ * Selection sort divides the input list into two parts: the sublist of items already sorted and the
+ * sublist of items remaining to be sorted. It repeatedly selects the smallest (or largest, depending
+ * on the sorting order) element from the unsorted sublist and swaps it with the leftmost unsorted element.
+ *
+ * Time Complexity: O(n^2)
+ *
+ * Selection sort is typically used for small datasets or as components in more complex sorting algorithms.
+ * */
+
 function selectionSort(arr) {
-  for (var i = 0; i < arr.length; i++) {
-    var lowest = i;
-    for (var j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
+  const len = arr.length;
+
+  for (let i = 0; i < len - 1; i++) {
+    let minIndex = i;
+    for (let j = i + 1; j < len; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
       }
     }
-    if (i !== lowest) {
-      //SWAP!
-      var temp = arr[i];
-      arr[i] = arr[lowest];
-      arr[lowest] = temp;
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
     }
-  }
-  return arr;
-}
-
-// ES2015 VERSION
-function selectionSort(arr) {
-  const swap = (arr, idx1, idx2) =>
-    ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
-
-  for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[lowest] > arr[j]) {
-        lowest = j;
-      }
-    }
-    if (i !== lowest) swap(arr, i, lowest);
   }
 
   return arr;
 }
 
-selectionSort([0, 2, 34, 22, 10, 19, 17]);
+console.log("Sorted Array: ", selectionSort([0, 2, 34, 22, 10, 19, 17]));
