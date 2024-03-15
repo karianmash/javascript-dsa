@@ -29,6 +29,10 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
+  /**
+   * DFS explores as far as possible along each branch before backtracking.
+   * It's commonly used in graph traversal.
+   */
   depthFirstRecursive(start) {
     const result = [];
     const visited = {};
