@@ -38,3 +38,5 @@ function heapSort(arr) {
 
   return arr;
 }
+
+console.log("Sorted Array: ", heapSort([8, 1, 2, 3, 4, 5, 6, 7]));
