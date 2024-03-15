@@ -1,41 +1,31 @@
+/**
+ * Quick Sort is another divide-and-conquer algorithm that selects a 'pivot' element from the array
+ * and partitions the other elements into two sub-arrays according to whether they are less than or
+ * greater than the pivot. It then recursively sorts the sub-arrays.
+ *
+ * Quick Sort is generally faster than Merge Sort and is widely used in practice due to its average-case
+ * time complexity of O(n log n), although it can degrade to O(n^2) in the worst case.
+ * */
 
-function pivot(arr, start = 0, end = arr.length - 1) {
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
 
-  // We are assuming the pivot is always the first element
-  let pivot = arr[start];
-  let swapIdx = start;
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
 
-  for (let i = start + 1; i <= end; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
     }
   }
 
-  // Swap the pivot from the start the swapPoint
-  swap(arr, start, swapIdx);
-  return swapIdx;
+  return [...quickSort(left), pivot, ...quickSort(right)];
 }
 
-
-function quickSort(arr, left = 0, right = arr.length -1){
-    if(left < right){
-        let pivotIndex = pivot(arr, left, right) //3
-        //left
-        quickSort(arr,left,pivotIndex-1);
-        //right
-        quickSort(arr,pivotIndex+1,right);
-      }
-     return arr;
-} 
-           
-quickSort([100,-3,2,4,6,9,1,2,5,3,23])
-
-
-
+console.log("Sorted Array: ", quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]));
 
 // [4,6,9,1,2,5,3]
 // [3,2,1,4,6,9,5]
@@ -45,7 +35,3 @@ quickSort([100,-3,2,4,6,9,1,2,5,3,23])
 //  2,1      5  9
 //    2
 //  1
-
-
-
-
