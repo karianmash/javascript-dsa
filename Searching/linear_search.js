@@ -8,4 +8,6 @@ function linearSearch(arr, val) {
   return -1;
 }
 
-console.log(linearSearch([34, 51, 1, 2, 3, 45, 56, 687], 100));
+const arr = [3, 1, 4, 1, 5, 9, 2, 6];
+const target = 5;
+console.log("Linear Search Result:", linearSearch(arr, target));
